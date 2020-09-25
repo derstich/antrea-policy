@@ -33,7 +33,7 @@ metadata:
   name: nginx
   namespace: app3
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: nginx
@@ -88,7 +88,7 @@ metadata:
     app: app
   namespace: app3
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: app
@@ -102,7 +102,7 @@ spec:
       containers:
       - name: php-apache
         image: derstich/miserver:005
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
 ---

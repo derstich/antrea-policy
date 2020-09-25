@@ -1,0 +1,17 @@
+apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: deny-preprod-to-dev
+spec:
+    priority: 100
+    tier: SecurityOps
+    appliedTo:
+      - namespaceSelector:
+          matchLabels:
+            env: dev
+    ingress:
+      - action: Drop
+        from:
+          - namespaceSelector:
+              matchLabels:
+                env: preprod

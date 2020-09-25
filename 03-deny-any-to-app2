@@ -1,7 +1,7 @@
 apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
 kind: ClusterNetworkPolicy
 metadata:
-  name: deny-any-to-app2
+  name: 03-deny-any-to-app2
 spec:
     priority: 30
     tier: application

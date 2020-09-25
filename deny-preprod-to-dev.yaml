@@ -3,7 +3,7 @@ kind: ClusterNetworkPolicy
 metadata:
   name: deny-preprod-to-dev
 spec:
-    priority: 100
+    priority: 101
     tier: SecurityOps
     appliedTo:
       - namespaceSelector:

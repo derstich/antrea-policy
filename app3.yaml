@@ -101,7 +101,7 @@ spec:
     spec:
       containers:
       - name: php-apache
-        image: derstich/miserver:004
+        image: derstich/miserver:005
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80

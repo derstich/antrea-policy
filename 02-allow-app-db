@@ -1,7 +1,7 @@
 apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
 kind: ClusterNetworkPolicy
 metadata:
-  name: allow-app-db
+  name: 02-allow-app-db
 spec:
     priority: 20
     tier: application

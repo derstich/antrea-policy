@@ -1,0 +1,20 @@
+apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: allow-app-db
+spec:
+    priority: 20
+    tier: application
+    appliedTo:
+      - podSelector:
+          matchLabels:
+            app: mysql8
+    ingress:
+      - action: Allow
+        from:
+          - podSelector:
+              matchLabels:
+                app: app
+        ports:
+          - protocol: TCP
+            port: 3306

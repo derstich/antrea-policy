@@ -1,0 +1,33 @@
+apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: 20-allow-ns-preprod-app1-preprod-app1
+spec:
+    priority: 120
+    tier: application
+    appliedTo:
+      - namespaceSelector:
+          matchLabels:
+            ns: preprod-app1
+    ingress:
+      - action: Allow
+        from:
+          - namespaceSelector:
+              matchLabels:
+                ns: preprod-app1
+---
+apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: 21-drop-any-ns-preprod-app1
+spec:
+    priority: 120
+    tier: application
+    appliedTo:
+      - namespaceSelector:
+          matchLabels:
+            ns: preprod-app1
+    ingress:
+      - action: Drop
+        from:
+          - namespaceSelector: {}

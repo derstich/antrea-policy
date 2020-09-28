@@ -15,3 +15,19 @@ spec:
           - namespaceSelector:
               matchLabels:
                 ns: dev-app1
+---
+apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: 11-Drop-any-ns-ev-app1
+spec:
+    priority: 110
+    tier: application
+    appliedTo:
+      - namespaceSelector:
+          matchLabels:
+            ns: dev-app1
+    ingress:
+      - action: Drop
+        from:
+          - namespaceSelector: {}

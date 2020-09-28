@@ -21,7 +21,7 @@ kind: ClusterNetworkPolicy
 metadata:
   name: 21-drop-any-ns-preprod-app1
 spec:
-    priority: 121
+    priority: 130
     tier: application
     appliedTo:
       - namespaceSelector:

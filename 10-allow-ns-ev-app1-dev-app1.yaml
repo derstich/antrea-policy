@@ -1,0 +1,17 @@
+apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: 10-allow-ns-ev-app1-dev-app1
+spec:
+    priority: 100
+    tier: application
+    appliedTo:
+      - namespaceSelector:
+          matchLabels:
+            ns: dev-app1
+    ingress:
+      - action: Allow
+        from:
+          - namespaceSelector:
+              matchLabels:
+                ns: dev-app1

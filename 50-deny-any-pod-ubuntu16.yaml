@@ -1,0 +1,15 @@
+apiVersion: security.antrea.tanzu.vmware.com/v1alpha1
+kind: ClusterNetworkPolicy
+metadata:
+  name: 50-deny-any-pod-ubuntu16
+spec:
+    priority: 50
+    tier: emergency
+    appliedTo:
+      - podSelector:
+          matchLabels:
+                  app: ubuntu-16-04
+    ingress:
+      - action: Drop
+        from:
+          - namespaceSelector: {}
